@@ -1,0 +1,95 @@
+#include<iostream>
+#define MAXSIZE 100
+typedef int DateType;
+class SequenList
+{
+public:
+	friend void Part(SequenList& L);
+	friend void Merge(SequenList& A, SequenList& B, SequenList& C);
+private:
+	DateType data[MAXSIZE];
+	int len;
+};
+class SeqStack
+{
+private:
+	DateType* base;//栈底指针
+	DateType* top;//栈顶指针
+	int size;   //栈的大小
+public:
+	SeqStack(int stacksize = 100)
+	{
+		base = new DateType[stacksize];
+		top = base;
+		size = stacksize;
+	}
+	~SeqStack()
+	{
+		delete[] base;
+		top = NULL;
+		base = NULL;
+	}
+};
+void Merge(SequenList& A, SequenList& B, SequenList& C)
+{
+	int i, j, k;
+	i = 0; j = 0; k = 0;
+	while (i < A.len && j < B.len)
+		if (A.data[i] <= B.data[j])
+			C.data[k++] = A.data[i++];
+		else
+		{
+			C.data[k++] = B.data[j++];
+		}
+	while (i < A.len)
+		C.data[k++] = A.data[i++];
+	while (j<B.len)
+	{
+		C.data[k++] = B.data[j++];
+		C.len = k;
+	}
+	
+		
+
+		
+
+}
+void Part(SequenList& L)
+{
+	int i, j;
+	DateType a;
+	a = L.data[0];
+	i = 0;
+	
+	j = L.len - 1;
+	while (i < j)
+	{
+		while ((i < j) && (L.data[j] >= a))
+			j--;
+		L.data[i] = L.data[j];
+		while ((i < j) && (L.data[i] <= a))
+			i++;
+		L.data[j] = L.data[i];
+
+
+	}
+	L.data[i] = a;
+
+}
+/*转换数值*/
+int DecConversion(int N, int r, char NumR[])
+{
+	SeqStack S;
+	DateType x;
+	int i = 0;
+	if (r<2||r>10)
+	{
+		return (0);
+
+	}while (N)
+	{
+		S.push
+
+	}
+
+}
